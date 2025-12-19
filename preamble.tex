@@ -1,0 +1,271 @@
+% MISC
+\usepackage{amsmath, amssymb}
+\usepackage{subfiles}
+\pagestyle{empty}
+
+% SPACING
+\usepackage[margin=0.25in]{geometry}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0em}
+\usepackage{titlesec}
+% sections
+\titlespacing{\section}{0em}{0em}{-\parskip}
+\titleformat{\section}{\LARGE}{\thesection. }{0em}{}
+\titlespacing{\subsection}{0em}{0em}{0em}
+\titleformat{\subsection}{\Large}{\thesubsection. }{0em}{}
+% equations
+\setlength{\abovedisplayskip}{0em}
+\setlength{\belowdisplayskip}{0em}
+\setlength{\abovedisplayshortskip}{0em}
+\setlength{\belowdisplayshortskip}{0em}
+\setlength{\jot}{0em}
+% lists
+\usepackage{enumitem}
+\setlist{
+    nosep,
+    topsep=-\parskip
+}
+% ENVIRONMENTS
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{xparse}
+\usepackage{amsthm}
+\mdfsetup{
+    skipabove=0em,
+    skipbelow=0em,
+    nobreak=true
+}
+% statement
+% param color
+% param type
+% param number
+% param title
+\NewDocumentEnvironment{statement}{ m O{} O{} O{} }{
+    \begin{mdframed}[
+        linewidth=1pt,
+        linecolor=#1,
+        backgroundcolor=#1!5,
+        rightline=false,
+        topline=false,
+        bottomline=false,
+        innerleftmargin=0.5em,
+        innerrightmargin=0.5em,
+        innertopmargin=0.5em,
+        innerbottommargin=0.5em,
+        skipabove=0.5\baselineskip,
+        skipbelow=0.5\baselineskip,
+    ]
+        \setlength{\abovedisplayskip}{0em}
+        \setlength{\belowdisplayskip}{0em}
+        \setlength{\abovedisplayshortskip}{0em}
+        \setlength{\belowdisplayshortskip}{0em}
+        \raggedright
+
+        \ifx&#2#3#4&\else{%
+            \textsf{%
+                \textcolor{#1!70!black}{%
+                    #2%
+                    \ifx&#3&\else\space#3\fi%
+                    \ifx&#4&\else\space(#4)\fi%
+                }%
+            }%
+            \par\addvspace{-0.9\parskip}%
+        }\fi%
+}{
+    \end{mdframed}
+}
+% annotation
+% param color
+% param type
+% param number
+% param title
+\NewDocumentEnvironment{annotation}{ m O{} O{} O {} }{
+    \begin{mdframed}[
+        linewidth=1pt,
+        linecolor=#1,
+        rightline=false,
+        topline=false,
+        bottomline=false,
+        innerleftmargin=0.5em,
+        innerrightmargin=0.5em,
+        innertopmargin=0.5em,
+        innerbottommargin=0.5em,
+        skipabove=0em,
+    ]
+        \setlength{\abovedisplayskip}{0em}
+        \setlength{\belowdisplayskip}{0em}
+        \setlength{\abovedisplayshortskip}{0em}
+        \setlength{\belowdisplayshortskip}{0em}
+        \raggedright
+        
+        \ifx&#2#3#4&\else{%
+            \textsf{%
+                \textcolor{#1!70!black}{%
+                    #2%
+                    \ifx&#3&\else\space#3\fi%
+                    \ifx&#4&\else\space(#4)\fi%
+                }%
+            }%
+            \par\addvspace{-0.9\parskip}%
+        }\fi%
+}{
+    \end{mdframed}
+}
+% proof
+% param color
+\RenewDocumentEnvironment{proof}{ m }{
+    \begin{mdframed}[
+        linewidth=1pt,
+        linecolor=#1,
+        rightline=false,
+        topline=false,
+        bottomline=false,
+        innerleftmargin=0.5em,
+        innerrightmargin=0.5em,
+        innertopmargin=0.5em,
+        innerbottommargin=0.5em,
+        skipabove=0em,
+    ]
+        \setlength{\abovedisplayskip}{0em}
+        \setlength{\belowdisplayskip}{0em}
+        \setlength{\abovedisplayshortskip}{0em}
+        \setlength{\belowdisplayshortskip}{0em}
+        \raggedright
+
+        {\par\pushQED{\qed}%
+        \normalfont\noindent\textit{Proof}}
+        \par\addvspace{-0.9\parskip}
+}{
+        \popQED\par
+    \end{mdframed}
+}
+\NewDocumentEnvironment{assumptions}{}{
+    \begin{itemize}[
+        leftmargin=*,
+        nosep,
+        topsep=-\parskip,
+        label=$\circ$,
+    ]
+}{
+    \end{itemize}
+}
+% COMMANDS
+\newcommand{\R}{\ensuremath{\mathbb R}}
+\newcommand{\Q}{\ensuremath{\mathbb Q}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\C}{\ensuremath{\mathbb C}}
+
+% \NewDocumentEnvironment{statement}{ m }{
+%     \begin{mdframed}[
+%         linewidth=1pt,
+%         linecolor=#1,
+%         backgroundcolor=#1!5,
+%         rightline=false,
+%         topline=false,
+%         bottomline=false,
+%         innerleftmargin=0.5em,
+%         innerrightmargin=0.5em,
+%         innertopmargin=0.5em,
+%         innerbottommargin=0.5em,
+%         skipabove=0.5\baselineskip,
+%         skipbelow=0.5\baselineskip,
+%     ]
+%         \setlength{\abovedisplayskip}{0em}
+%         \setlength{\belowdisplayskip}{0em}
+%         \setlength{\abovedisplayshortskip}{0em}
+%         \setlength{\belowdisplayshortskip}{0em}
+% }{
+%     \end{mdframed}
+% }
+% \NewDocumentEnvironment{theorem}{ o o }{
+%     \begin{statement}{NavyBlue}
+%         Theorem%
+%         \IfValueT{#1}{~#1}%
+%         \IfValueT{#2}{~(#2)}.%
+%         \quad%
+% }{
+%     \end{statement}
+% }
+% \NewDocumentEnvironment{proposition}{ o o }{
+%     \begin{statement}{NavyBlue}
+%         Proposition%
+%         \IfValueT{#1}{~#1}%
+%         \IfValueT{#2}{~(#2)}.%
+%         \quad%
+% }{
+%     \end{statement}
+% }
+% \NewDocumentEnvironment{remark}{ o o }{
+%     \begin{statement}{NavyBlue}
+%         Remark%
+%         \IfValueT{#1}{~#1}%
+%         \IfValueT{#2}{~(#2)}.%
+%         \quad%
+% }{
+%     \end{statement}
+% }
+% % green box with left border
+% \NewDocumentEnvironment{definition}{ o o }{
+%     \begin{statement}{ForestGreen}
+%         Definition%
+%         \IfValueT{#1}{~#1}%
+%         \IfValueT{#2}{~(#2)}.%
+%         \quad%
+% }{
+%     \end{statement}
+% }
+% \NewDocumentEnvironment{exercise}{ o o }{
+%     \begin{statement}{RawSienna}
+%         Exercise%
+%         \IfValueT{#1}{~#1}%
+%         \IfValueT{#2}{~(#2)}.%
+%         \quad%
+% }{
+%     \end{statement}
+% }
+% % annotations
+% \NewDocumentEnvironment{annotation}{ m }{
+%     \begin{mdframed}[
+%         linewidth=1pt,
+%         linecolor=#1,
+%         rightline=false,
+%         topline=false,
+%         bottomline=false,
+%         innerleftmargin=0.5em,
+%         innerrightmargin=0.5em,
+%         innertopmargin=0.5em,
+%         innerbottommargin=0.5em,
+%         skipabove=0em,
+%     ]
+%         \setlength{\abovedisplayskip}{0em}
+%         \setlength{\belowdisplayskip}{0em}
+%         \setlength{\abovedisplayshortskip}{0em}
+%         \setlength{\belowdisplayshortskip}{0em}
+% }{
+%     \end{mdframed}
+% }
+% \NewDocumentEnvironment{definitionannotation}{}{
+%     \begin{annotation}{ForestGreen}
+% }{
+%     \end{annotation}
+% }
+% \NewDocumentEnvironment{proof}{ m }{
+%     \begin{annotation}{#1}
+%         \par\textit{Proof}\\
+% }{
+%         \unskip\nobreak\hfill$\square$\par\addvspace{\medskipamount}
+%     \end{annotation}
+% }
+% \NewDocumentEnvironment{theoremproof}{}{
+%     \begin{proof}{NavyBlue}
+% }{
+%     \end{proof}
+% }
+% \NewDocumentEnvironment{exerciseproof}{}{
+%     \begin{proof}{RawSienna}
+% }{
+%     \end{proof}
+% }
+% 
+
