@@ -25,6 +25,7 @@
     nosep,
     topsep=-\parskip
 }
+
 % ENVIRONMENTS
 \usepackage[usenames, dvipsnames]{xcolor}
 \usepackage[framemethod=TikZ]{mdframed}
@@ -139,133 +140,11 @@
         \popQED\par
     \end{mdframed}
 }
-\NewDocumentEnvironment{assumptions}{}{
-    \begin{itemize}[
-        leftmargin=*,
-        nosep,
-        topsep=-\parskip,
-        label=$\circ$,
-    ]
-}{
-    \end{itemize}
-}
+
 % COMMANDS
 \newcommand{\R}{\ensuremath{\mathbb R}}
 \newcommand{\Q}{\ensuremath{\mathbb Q}}
 \newcommand{\Z}{\ensuremath{\mathbb Z}}
 \newcommand{\N}{\ensuremath{\mathbb N}}
 \newcommand{\C}{\ensuremath{\mathbb C}}
-
-% \NewDocumentEnvironment{statement}{ m }{
-%     \begin{mdframed}[
-%         linewidth=1pt,
-%         linecolor=#1,
-%         backgroundcolor=#1!5,
-%         rightline=false,
-%         topline=false,
-%         bottomline=false,
-%         innerleftmargin=0.5em,
-%         innerrightmargin=0.5em,
-%         innertopmargin=0.5em,
-%         innerbottommargin=0.5em,
-%         skipabove=0.5\baselineskip,
-%         skipbelow=0.5\baselineskip,
-%     ]
-%         \setlength{\abovedisplayskip}{0em}
-%         \setlength{\belowdisplayskip}{0em}
-%         \setlength{\abovedisplayshortskip}{0em}
-%         \setlength{\belowdisplayshortskip}{0em}
-% }{
-%     \end{mdframed}
-% }
-% \NewDocumentEnvironment{theorem}{ o o }{
-%     \begin{statement}{NavyBlue}
-%         Theorem%
-%         \IfValueT{#1}{~#1}%
-%         \IfValueT{#2}{~(#2)}.%
-%         \quad%
-% }{
-%     \end{statement}
-% }
-% \NewDocumentEnvironment{proposition}{ o o }{
-%     \begin{statement}{NavyBlue}
-%         Proposition%
-%         \IfValueT{#1}{~#1}%
-%         \IfValueT{#2}{~(#2)}.%
-%         \quad%
-% }{
-%     \end{statement}
-% }
-% \NewDocumentEnvironment{remark}{ o o }{
-%     \begin{statement}{NavyBlue}
-%         Remark%
-%         \IfValueT{#1}{~#1}%
-%         \IfValueT{#2}{~(#2)}.%
-%         \quad%
-% }{
-%     \end{statement}
-% }
-% % green box with left border
-% \NewDocumentEnvironment{definition}{ o o }{
-%     \begin{statement}{ForestGreen}
-%         Definition%
-%         \IfValueT{#1}{~#1}%
-%         \IfValueT{#2}{~(#2)}.%
-%         \quad%
-% }{
-%     \end{statement}
-% }
-% \NewDocumentEnvironment{exercise}{ o o }{
-%     \begin{statement}{RawSienna}
-%         Exercise%
-%         \IfValueT{#1}{~#1}%
-%         \IfValueT{#2}{~(#2)}.%
-%         \quad%
-% }{
-%     \end{statement}
-% }
-% % annotations
-% \NewDocumentEnvironment{annotation}{ m }{
-%     \begin{mdframed}[
-%         linewidth=1pt,
-%         linecolor=#1,
-%         rightline=false,
-%         topline=false,
-%         bottomline=false,
-%         innerleftmargin=0.5em,
-%         innerrightmargin=0.5em,
-%         innertopmargin=0.5em,
-%         innerbottommargin=0.5em,
-%         skipabove=0em,
-%     ]
-%         \setlength{\abovedisplayskip}{0em}
-%         \setlength{\belowdisplayskip}{0em}
-%         \setlength{\abovedisplayshortskip}{0em}
-%         \setlength{\belowdisplayshortskip}{0em}
-% }{
-%     \end{mdframed}
-% }
-% \NewDocumentEnvironment{definitionannotation}{}{
-%     \begin{annotation}{ForestGreen}
-% }{
-%     \end{annotation}
-% }
-% \NewDocumentEnvironment{proof}{ m }{
-%     \begin{annotation}{#1}
-%         \par\textit{Proof}\\
-% }{
-%         \unskip\nobreak\hfill$\square$\par\addvspace{\medskipamount}
-%     \end{annotation}
-% }
-% \NewDocumentEnvironment{theoremproof}{}{
-%     \begin{proof}{NavyBlue}
-% }{
-%     \end{proof}
-% }
-% \NewDocumentEnvironment{exerciseproof}{}{
-%     \begin{proof}{RawSienna}
-% }{
-%     \end{proof}
-% }
-% 
 
